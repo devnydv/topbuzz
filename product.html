@@ -157,6 +157,7 @@ onValue(starCountRef, (snapshot) => {
       oprc.setAttribute('class','mrp');
       rat.setAttribute('class','rat');
       link.setAttribute('href', data[ids][key].url);
+      link.setAttribute('alt',data[ids][key].name);
       link.setAttribute("target","blank_")
       para.innerText = data[ids][key].name;
       prc.innerText = "Price: "+ data[ids][key].prc;
