@@ -179,12 +179,15 @@ onValue(starCountRef, (snapshot) => {
       ndiv.appendChild(dtls);
       main.appendChild(ndiv);
 
+let high = document.createElement('ul');
+      dtls.appendChild(high);
 for(let keyss of Object.keys(data[ids][key].highlights)){
-  let high = document.createElement('ul');
-
-  high.innerText = data[ids][key].highlights[keyss];
   
-  dtls.appendChild(high);
+ let li=document.createElement('li');
+  li.innerText = data[ids][key].highlights[keyss];
+  high.appendChild(li);
+  
+ 
   
 }
 
