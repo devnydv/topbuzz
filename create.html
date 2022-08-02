@@ -1,26 +1,44 @@
-<!-- 
-<script>
-  fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    let lol =Object.keys(data);
-let link=Object.keys(data[lol])
-for(let a=0; a<=link.length; a++){
-  let getl=link[a]
-console.log(data[lol][getl])
-}
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="deals.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test one</title>
+  <style>
+    input{
+      width: 100%;
+      height: 20px;
+      font-size:16px;
+      margin: 10px 0px 10px 0px;
+    }
+    button{
+      display: block;
+      width: 100px;
+      margin: 5px 0px 5px 0px;
+    }
+  </style>
+</head>
+<body>
+  <div id="smain">
+  <div id="main">
+    <p>post name</p>
+    <input type="text" id="post" placeholder="Post name"><br>
+    <p>links</p>
+    <input type="text" id="link0" placeholder="link0"><br>
+    <input type="text"  id="link1" placeholder="link1">
+    <button id="add">Add</button>
+    <button id="load">Submit</button>
 
-);
-</script> -->
 
-<script>
+
+  </div>
+</div>
+</body>
+
+  <script type="module">
   
-</script>
-
-
-
-<script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
   // TODO: Add SDKs for Firebase products that you want to use
@@ -36,24 +54,116 @@ console.log(data[lol][getl])
     messagingSenderId: "119821179977",
     appId: "1:119821179977:web:63930ff56856b47f17f398"
   };
-
+  
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   
   import { getDatabase, ref ,set,child, update, remove, onValue} from"https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
 
+  
+  let numinput={
+    2:"link2",
+    3:"link3",
+    4:"link4",
+    5:"link5",
+    6:"link6",
+    7:"link7",
+    8:"link8",
+    9:"link9"
+  };
+
+let linkval=1;
+function add(){
+ linkval++
+ let main=document.getElementById("main");
+ 
+ let inp=document.createElement('input');
+ let gap=document.createElement('br');
+ inp.setAttribute("type", "text");
+ inp.setAttribute("id",numinput[linkval]);
+ inp.setAttribute("placeholder",numinput[linkval]);
+ main.appendChild(gap)
+ main.appendChild(inp)
+ 
+ window.localStorage.setItem('linkval', linkval);
+
+
+ 
+}
+document.getElementById("add").addEventListener('click',add)
 
 
 
-  let apifetch={
-    link0:"https://flipkart.dvishal485.workers.dev/product/min/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ",
-    link1:"https://flipkart.dvishal485.workers.dev/product/min/dl/realme-narzo-50-speed-blue-128-gb/p/itm9d47ef5d10145?pid=MOBGC2E7KHZD6MDD&lid=LSTMOBGC2E7KHZD6MDDUKG4CJ&marketplace=FLIPKART&store=tyy%2F4io&srno=b_1_1&otracker=clp_metro_expandable_1_3.metroExpandable.METRO_EXPANDABLE_Shop%2BNow_mobile-phones-store_Q1PDG4YW86MF_wp2&fm=neo%2Fmerchandising&iid=796c8d22-fc7c-46b7-bf49-1b693fa2de41.MOBGC2E7KHZD6MDD.SEARCH&ppt=clp&ppn=mobile-phones-store&ssid=afr4mfzl5vmpe1hc1658489915896",
-    link2:"https://flipkart.dvishal485.workers.dev/product/min/dl/boat-rockerz-255-pro-asap-charge-upto-40-hours-playback-bluetooth-headset/p/itmc0a280218bd0d?pid=ACCFZ95MY8SGZQRT&lid=LSTACCFZ95MY8SGZQRTLXXUEP&marketplace=FLIPKART&store=0pm%2Ffcn&srno=b_1_1&otracker=browse&otracker1=hp_rich_navigation_PINNED_neo%2Fmerchandising_NA_NAV_EXPANDABLE_navigationCard_cc_2_L2_view-all&fm=neo%2Fmerchandising&iid=en_aJGDCfRVf7sdbxG9NBxbmvbqAnHqFUqXhxE%2BS%2F9hpU3%2Fmtz2%2B91WGK8QgCZT0dDoo6ZznsEoiIsJiXX5BNmEAw%3D%3D&ppt=hp&ppn=homepage&ssid=mqzsfpendzp3ot1c1658491198517"
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // let apifetch={
+  //   link0:"https://flipkart.dvishal485.workers.dev/product/min/dl/redgear-f-15-wired-optical-gaming-mouse/p/itm554692cb3fa83?pid=ACCG4CJCHMEZAZFG&lid=LSTACCG4CJCHMEZAZFGKDT2VB&marketplace=FLIPKART&q=redgiar+mouse&store=search.flipkart.com%2F4rr%2Fkm5&spotlightTagId=BestvalueId_4rr%2Fkm5&srno=s_1_2&otracker=search&otracker1=search&fm=Search&iid=d0455fe4-653e-4419-83ee-9fb395b6e311.ACCG4CJCHMEZAZFG.SEARCH&ppt=sp&ppn=sp&ssid=e6kyu4cz0vu462v41659351570160&qH=8099a033e94d66fc",
+  //   link1:"https://flipkart.dvishal485.workers.dev/product/min/dl/redgear-dragon-war-ele-g11-emera-wired-laser-gaming-mouse/p/itm394e9e1e376b8?pid=ACCEUAK85EPBRF7P&lid=LSTACCEUAK85EPBRF7PMDUYMR&marketplace=FLIPKART&q=redgiar+mouse&store=search.flipkart.com%2F4rr%2Fkm5&srno=s_1_3&otracker=search&otracker1=search&fm=Search&iid=d0455fe4-653e-4419-83ee-9fb395b6e311.ACCEUAK85EPBRF7P.SEARCH&ppt=sp&ppn=sp&ssid=e6kyu4cz0vu462v41659351570160&qH=8099a033e94d66fc",
+  //   link2:"https://flipkart.dvishal485.workers.dev/product/min/dl/zebronics-zeb-transformer-m-wired-optical-gaming-mouse/p/itm9414717eb9f98?pid=ACCFU5WZWYREMKKW&lid=LSTACCFU5WZWYREMKKWHORMFU&marketplace=FLIPKART&q=redgiar+mouse&store=search.flipkart.com%2F4rr%2Fkm5&srno=s_1_5&otracker=search&otracker1=search&fm=Search&iid=d0455fe4-653e-4419-83ee-9fb395b6e311.ACCFU5WZWYREMKKW.SEARCH&ppt=sp&ppn=sp&ssid=e6kyu4cz0vu462v41659351570160&qH=8099a033e94d66fc",
+  //   link3:"https://flipkart.dvishal485.workers.dev/product/min/dl/arctic-fox-wired-usb-gaming-mouse-breathing-lights-dpi-upto-3600-optical/p/itmc55c4e88c6306?pid=ACCGEVGCGZU3UAYV&lid=LSTACCGEVGCGZU3UAYVREZRSV&marketplace=FLIPKART&q=redgiar+mouse&store=search.flipkart.com%2F4rr%2Fkm5&srno=s_1_17&otracker=search&otracker1=search&fm=Search&iid=d0455fe4-653e-4419-83ee-9fb395b6e311.ACCGEVGCGZU3UAYV.SEARCH&ppt=sp&ppn=sp&ssid=e6kyu4cz0vu462v41659351570160&qH=8099a033e94d66fc",
+  //   link4:'https://flipkart.dvishal485.workers.dev/product/min/dl/amkette-evofox-shadow-3600-dpi-gaming-sensor-6-buttons-design-breathing-rainbow-wired-optical-mouse/p/itm670ab2d577a0f?pid=ACCG9PSH4GZXDTZB&lid=LSTACCG9PSH4GZXDTZBWB2UFG&marketplace=FLIPKART&q=redgiar+mouse&store=search.flipkart.com%2F4rr%2Fkm5&srno=s_1_22&otracker=search&otracker1=search&fm=Search&iid=d0455fe4-653e-4419-83ee-9fb395b6e311.ACCG9PSH4GZXDTZB.SEARCH&ppt=sp&ppn=sp&ssid=e6kyu4cz0vu462v41659351570160&qH=8099a033e94d66fc'
+  // }
+  document.getElementById("load").addEventListener('click',load)
+  function load(){
+    let lval=window.localStorage.getItem('linkval')
+    let apifetch={
+
+    }
+
+      for(let i=0; i<=lval; i++){
+        let link="link"+i
+        let got=document.getElementById(link).value
+        
+  let retext= got.replace("https://www.flipkart.com/","https://flipkart.dvishal485.workers.dev/product/min/dl/")
+  console.log(retext)
+        apifetch[link]=retext
+      }
+
+
+
+
+
+
+
 let val= apifetch;
   let linknum=Object.keys(apifetch);
   let amount=linknum.length;
   amount--
+  console.log(amount)
   for(let b=0; b<=amount; b++){
 let valnum="link"+b
   console.log(valnum)
@@ -62,10 +172,10 @@ let valnum="link"+b
   .then(apidata => {
     
 console.log(apidata)
-
+let post=document.getElementById("post").value
 let db=getDatabase();
   let title= "item"+b;
-set(ref(db,'post/'+'post1/'+title),{
+set(ref(db,'post/'+post+'/'+title),{
   name:apidata.name,
   prc:apidata.current_price,
   oprc:apidata.original_price,
@@ -90,7 +200,9 @@ console.log('suc')
 
 
 
-
+}
 
 
 </script>
+
+</html>
