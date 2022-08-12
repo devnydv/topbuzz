@@ -2,6 +2,18 @@
 <html lang="en">
 
 <head>
+    <meta content='index,follow' name='robots' />
+  <meta content='Dev Nararan Yadav' name='author' />
+  <meta content='all' name='robots' />
+  <meta content='en' name='language' />
+  <meta content='IN' name='country' />
+  <meta content='TopTechBuzz.xyz :: Best Electronic Deals  ' property='og:title' />
+  <meta
+    content='Best Deals on Top Mobile Brands, Deals, flipkart deals, all flipkart product, online deals, deals on mobiles, deals on earphones, laptops, Gaming_Laptops, DSLR, Printers, Inks, Back_Cases'
+    name='Keywords' />
+  <meta name="description"
+    content="TopTechBuzz is a simple way to shop online. Look for best product and visit online store from best products and only buy the top item in the market.">
+    <link rel="shortcut icon" href="icons/icon.webp" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +67,7 @@
             </div>
             <div class='about'>
                 <p>Facebook Page</p>
-                <a href=''>
+                <a href='https://www.facebook.com/Lowoncost/'>
                     <p>Facebook</p>
                 </a>
             </div>
@@ -64,12 +76,20 @@
 </body>
 <script>
 
+
+
+
+
+
+
+
+
     let url = new URLSearchParams(window.location.search);
 
     let title = url.get('title');
     let c = title.split("_").join(' ');
     //console.log(c);
-
+    document.title="Top Tech Buzz: Top Best "+c;
     let main = document.getElementById('main');
     let div = document.createElement("div");
     let h1 = document.createElement('h1');
@@ -129,7 +149,7 @@
                     ndiv.setAttribute('class', 'ndiv');
                     dimg.setAttribute('class', 'img');
                     if(data1.thumbnails[0]===undefined){
-                        console.log('not')
+                        //console.log('not')
                     }else{
                         img.setAttribute("src", data1.thumbnails[0]);
                     }
@@ -176,7 +196,7 @@
 
                     let high = document.createElement('ul');
                     dtls.appendChild(high);
-                    console.log(data1.highlights);
+                    //console.log(data1.highlights);
                     let highh = Object.keys(data1.highlights)
                     //console.log(highh.length)
                     for (let k = 0; k <= highh.length--; k++) {
