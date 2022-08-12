@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="deals.css">
+    <title>TopTech</title>
+</head>
+
+<body>
+    <nav id="hemu">
+        <div id="logo">
+    
+    
+          <img id="mnicon" src="icons/menu_black_24dp.svg" alt="" onclick="notvisi()">
+          <a href="/index.html">
+            <h1>TopTechBuzz</h1>
+          </a>
+        </div>
+        <div id="menug">
+          <ul id="ul" class="notvisi">
+            <a href="index.html" alt="toptechbuzz">
+              <li>Home</li>
+            </a>
+            <a href="blog.html" alt="technews">
+              <li>Blog</li>
+            </a>
+            
+            <!-- <a href="http://newsfatafat.lowoncost.xyz/">
+              <li>News</li>
+            </a> -->
+    
+          </ul>
+        </div>
+      </nav>
+    
+    <div id="smain">
+        <div id="main">
+
+
+        </div>
+
+        <div id='titl'>
+            <div id='title'>
+
+
+            </div>
+            <div class='about'>
+                <p>About us</p>
+                <p>TopTechBuzz is a blog website that deals with topics related to tech, deals, offers and new products
+                    in the market. We put our efforts to find the best Items. Products for our users at lowest prices.
+                </p>
+            </div>
+            <div class='about'>
+                <p>Facebook Page</p>
+                <a href=''>
+                    <p>Facebook</p>
+                </a>
+            </div>
+
+        </div>
+</body>
+<script>
+
+    let url = new URLSearchParams(window.location.search);
+
+    let title = url.get('title');
+    let c = title.split("_").join(' ');
+    //console.log(c);
+
+    let main = document.getElementById('main');
+    let div = document.createElement("div");
+    let h1 = document.createElement('h1');
+    div.setAttribute("id", 'head')
+    h1.innerText = "Top Best " + c;
+    div.appendChild(h1)
+    main.appendChild(div);
+
+
+    let obj = {
+
+    }
+    fetch("https://flipkart.dvishal485.workers.dev/search/" + title)
+        .then((responce) =>
+            responce.json())
+        .then((data => {
+        //console.log(data)
+            for (let i = 0; i <= 9; i++) {
+                let link = "link" + i
+                obj[link] = data.result[i].query_url
+
+            }
+
+            load()
+        }))
+
+    function load() {
+        //console.log(obj)
+        let main = document.getElementById('main');
+
+
+        for (let i = 0; i <= 9; i++) {
+            let link = "link" + i
+
+
+
+
+            fetch(obj[link])
+                .then((responce) =>
+                    responce.json())
+                .then((data1 => {
+
+                    let main = document.getElementById('main');
+
+                    let ndiv = document.createElement("div");
+                    let dimg = document.createElement("div");
+                    let dtls = document.createElement('div');
+                    let img = document.createElement('img');
+                    let para = document.createElement('h1');
+                    let prc = document.createElement('p');
+                    let oprc = document.createElement('p');
+                    let rat = document.createElement('p');
+                    let but = document.createElement('button');
+                    let h2 = document.createElement('h2');
+                    let link = document.createElement("a");
+
+                    ndiv.setAttribute('class', 'ndiv');
+                    dimg.setAttribute('class', 'img');
+                    if(data1.thumbnails[0]===undefined){
+                        console.log('not')
+                    }else{
+                        img.setAttribute("src", data1.thumbnails[0]);
+                    }
+                    
+                    img.setAttribute("alt", data1.name);
+                    dtls.setAttribute('class', 'details');
+                    prc.setAttribute('class', 'price');
+                    oprc.setAttribute('class', 'mrp');
+                    rat.setAttribute('class', 'rat');
+                    //console.log(data1.share_url)
+                    link.setAttribute('href', data1.share_url+'?affid=bittumail');
+                    link.setAttribute("target", "blank_")
+                    para.innerText = data1.name;
+                    prc.innerText = "Price: " + data1.current_price;
+                    oprc.innerText = "MRP: " + data1.original_price;
+                    rat.innerText = data1.rating;
+                    but.innerText = "View Details";
+                    but.setAttribute('class', 'but');
+                    h2.innerText = "Highlights:";
+
+
+
+
+
+
+
+
+                    dtls.appendChild(para);
+                    dtls.appendChild(prc);
+                    dtls.appendChild(oprc);
+                    dtls.appendChild(rat);
+                    link.appendChild(but);
+                    dtls.appendChild(link);
+                    dtls.appendChild(h2);
+                    dimg.appendChild(img);
+                    ndiv.appendChild(dimg);
+                    ndiv.appendChild(dtls);
+                    main.appendChild(ndiv);
+
+
+
+
+
+
+                    let high = document.createElement('ul');
+                    dtls.appendChild(high);
+                    console.log(data1.highlights);
+                    let highh = Object.keys(data1.highlights)
+                    //console.log(highh.length)
+                    for (let k = 0; k <= highh.length--; k++) {
+                        let li = document.createElement('li');
+                        li.innerText = data1.highlights[k];
+                        high.appendChild(li);
+                        //console.log(data1.highlights[k])
+
+                    }
+
+                }))
+
+
+        }
+    }
+
+</script>
+
+
+</html>
