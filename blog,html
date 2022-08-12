@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content='index,follow' name='robots' />
+  <meta content='Dev Nararan Yadav' name='author' />
+  <meta content='all' name='robots' />
+  <meta content='en' name='language' />
+  <meta content='IN' name='country' />
+  <meta content='TopTechBuzz Blogs :: Tech and Technical Blogs  ' property='og:title' />
+  <meta
+    content='Best Deals on Top Mobile Brands, Deals, flipkart deals, all flipkart product, online deals, deals on mobiles, deals on earphones, laptops, Gaming_Laptops, DSLR, Printers, Inks, Back_Cases'
+    name='Keywords' />
+  <meta name="description"
+    content="TopTechBuzz is a simple way to shop online. Look for best product and visit online store from best products and only buy the top item in the market.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="deals.css">
+  <link rel="shortcut icon" href="icons/icon.webp" type="image/x-icon">
+  <script src="js/main.js"></script>
+
+  <title>TopTechBuzz: Tech and Technical Items</title>
+</head>
+
+<body>
+  <nav id="hemu">
+    <div id="logo">
+
+
+      <img id="mnicon" src="icons/menu_black_24dp.svg" alt="" onclick="notvisi()">
+      <a href="/index.html">
+        <h1>TopTechBuzz</h1>
+      </a>
+    </div>
+    <div id="menug">
+      <ul id="ul" class="notvisi">
+        <a href="index.html" alt="toptechbuzz">
+          <li>Home</li>
+        </a>
+        <a href="blog.html" alt="technews">
+          <li>Blog</li>
+        </a>
+        
+        <!-- <a href="http://newsfatafat.lowoncost.xyz/">
+          <li>News</li>
+        </a> -->
+
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
+  <DIV>
+    <div id="smain">
+
+      <div id="main">
+
+        <div id="load">
+          <button id="butt" onclick="load()"></button>
+        </div>
+      </div>
+
+      <div id='titl'>
+        <div id='title'>
+
+
+        </div>
+        <div class='about'>
+          <p>About us</p>
+          <p>TopTechBuzz is a blog website that deals with topics related to tech, deals, offers and new products in the market. We put our efforts to find the best Items. Products for our users at lowest prices. </p>
+        </div>
+        <div class='about'>
+          <p>Facebook Page</p>
+          <a href=''>
+            <p>Facebook</p>
+          </a>
+        </div>
+      </div>
+
+
+
+
+      
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function notvisi() {
+
+    let btn = document.getElementById('ul');
+    btn.classList.toggle('notvisi')
+
+  }
+</script>
+
+</html>
