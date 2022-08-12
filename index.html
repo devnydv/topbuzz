@@ -2,109 +2,154 @@
 <html lang="en">
 
 <head>
-<!--   bullet profit -->
-  <meta name='bulletprofit' content='ufDmJ0zRdvfkal3177OE'/>
-  
-  
   <meta content='index,follow' name='robots' />
   <meta content='Dev Nararan Yadav' name='author' />
   <meta content='all' name='robots' />
   <meta content='en' name='language' />
   <meta content='IN' name='country' />
-  <meta content='TopTechBuzz.xyz :: Buy the Best for Yourself ' property='og:title' />
+  <meta content='TopTechBuzz.xyz :: Best Electronic Deals  ' property='og:title' />
   <meta
     content='Best Deals on Top Mobile Brands, Deals, flipkart deals, all flipkart product, online deals, deals on mobiles, deals on earphones, laptops, Gaming_Laptops, DSLR, Printers, Inks, Back_Cases'
     name='Keywords' />
   <meta name="description"
     content="TopTechBuzz is a simple way to shop online. Look for best product and visit online store from best products and only buy the top item in the market.">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="deals.css">
-  <link rel="shortcut icon" href="icons/icon.webp" type="image/x-icon">
-  <script src="main.js"></script>
-
-  <title>TopTechBuzz: Technology and Tech Items</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopTechs- Find Best Out of Amazing Products</title>
+    <link rel="shortcut icon" href="icons/icon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="css/style1.css">
 </head>
 
 <body>
-  <nav id="hemu">
-    <div id="logo">
 
 
-      <img id="mnicon" src="icons/menu_black_24dp.svg" alt="" onclick="notvisi()">
-      <a href="index.html">
-        <h1>TopTechBuzz</h1>
-      </a>
-    </div>
-    <div id="menug">
-      <ul id="ul" class="notvisi">
-        <a href="index.html">
-          <li>Home</li>
-        </a>
-        <a href="https://lowoncost.xyz">
-          <li>More</li>
-        </a>
-        <!-- <a href="http://newsfatafat.lowoncost.xyz/">
-          <li>News</li>
-        </a> -->
-
-      </ul>
-    </div>
-  </nav>
-
-
-
-
-
-  <DIV>
-    <div id="smain">
-
-      <div id="main">
-
-        <div id="load">
-          <button id="butt" onclick="load()">Loading...</button>
-        </div>
-      </div>
-
-      <div id='titl'>
-        <div id='title'>
-
-
-        </div>
-        <div class='about'>
-          <p>About us</p>
-          <p>TopTechBuzz is a blog website that deals with topics related to tech, deals, offers and new products in the market. We put our efforts to find the best Items. Products for our users at lowest prices. </p>
-        </div>
-        <div class='about'>
-          <p>Facebook Page</p>
-          <a href='https://ms-my.facebook.com/LowonCost'>
-            <p>Facebook Page</p>
+    <nav id="hemu">
+        <div id="logo">
+    
+    
+          <img id="mnicon" src="icons/menu_black_24dp.svg" alt="menu" onclick="notvisi()">
+          <a href="/index.html">
+            <h1>TopTechBuzz</h1>
           </a>
         </div>
+        <div id="menug">
+          <ul id="ul" class="notvisi">
+            <a href="index.html" title="toptechbuzz">
+              <li>Home</li>
+            </a>
+            <a href="blog.html" title="blog">
+              <li>Blog</li>
+            </a>
+            
+            <!-- <a href="http://newsfatafat.lowoncost.xyz/">
+              <li>News</li>
+            </a> -->
+    
+          </ul>
+        </div>
+      </nav>
+    
+    <div id="smain">
+        
+    </div>
+
+
+
+    <div id="footer">
+      <div class="elem">
+        <h4>TopTechBuzz</h4>
+        <p>TopTechBuzz is a blog website that deals with topics related to tech, deals, offers and new products in the market. We put our efforts to find the best Items. Products for our users at lowest prices.</p>
       </div>
-
-
+      <div class="elem">
+        <h4>Deals</h4>
+        <a href="items.html?title=smartphone" title="smartphone" ><p>Smartphones</p></a>
+        <a href="items.html?title=Air_Conditioners" title="air conditioners" ><P>Air Conditioners</P></a>
+        <a href="items.html?title=Refrigerators" title="Refrigerators" ><P>Refrigerators</P></a>
+        <a href="items.html?title=Kitchen_Appliances" title="Kitchen_Appliances" ><p>Kitchen Appliances</p></a>
+      </div>
+      <div class="elem">
+        <h4> Follow and contact</h4>
+        
+        <a href="https://www.facebook.com/Lowoncost/" title="facebook page"><p>Facebook</p></a>
+        <a href=""><p>Privacy</p></a>
+        <!-- <a href=""><p>Instagram</p></a> -->
+      </div>
+      <div class="elem">
+        <h4>More</h4>
+        <a href="https://toptechbuzz.xyz" title="index.html" ><p>TopTechBuzz</p></a>
+        <a href="https://toptechbuzz.xyz" title="https://www.assamjobcircle.com/" ><p>Assam job Circle</p></a>
+      </div>
+    </div>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
-  function notvisi() {
+    fetch("data/data.json")
+        .then((responce) =>
+            responce.json())
+        .then((data => {
+            //console.log(data)
 
-    let btn = document.getElementById('ul');
-    btn.classList.toggle('notvisi')
+            let nobj = Object.keys(data.id1)
+            //console.log(nobj[1]);
 
-  }
+            let smain = document.getElementById('smain');
+            for (let i = 0; i < nobj.length; i++) {
+                let nnobj = nobj[i]
+                let h1 = document.createElement("h1");
+                let main = document.createElement('div');
+
+
+                main.setAttribute('class', 'main');
+                h1.innerText = nnobj;
+                
+
+                smain.appendChild(h1);
+                smain.appendChild(main);
+
+                let lgtinner = Object.keys(data.id1[nnobj])
+                console.log(lgtinner.length)
+                for (let j = 0; j < lgtinner.length; j++) {
+                    let valinner = lgtinner[j]
+                    let a = document.createElement('a');
+                    let child= document.createElement('div');
+                    let fimg= document.createElement('div')
+                    let img=document.createElement('img');
+                    let title=document.createElement('h1');
+                     
+
+
+                    let nlink=data.id1[nnobj][valinner].title
+
+                    let c= nlink.split(" ").join('_');
+                    child.setAttribute('class','child')
+                    fimg.setAttribute('class','fiximg')
+                    a.setAttribute('href','items.html?title='+ c)
+                    a.setAttribute('title', c);
+                    img.setAttribute('alt', c);
+                    img.setAttribute('src',data.id1[nnobj][valinner].img)
+                    title.innerText= data.id1[nnobj][valinner].title
+                    // console.log(data.id1[nnobj][valinner].img)
+
+
+                    
+                    fimg.appendChild(img)
+                    child.appendChild(fimg)
+                    child.appendChild(title)
+                    a.appendChild(child)
+                    main.appendChild(a)
+
+                }
+            }
+        }));
 </script>
+<script>
+    function notvisi() {
+  
+      let btn = document.getElementById('ul');
+      btn.classList.toggle('notvisi')
+  
+    }
+  </script>
 
 </html>
