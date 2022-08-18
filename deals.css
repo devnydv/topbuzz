@@ -212,10 +212,7 @@
   #main .ndiv h1{
     color: black;
     font-size: 20px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    
 
   }
   #main .ndiv p{
@@ -223,7 +220,12 @@
    font-size: 20px;
   }
 
-  #main .ndiv .details h1{
+  #main .ndiv .details h2{
+     display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
+      
     margin:10px 10px 0px 0px;
     font-weight: bolder;
     text-align: justify;
