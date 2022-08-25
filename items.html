@@ -143,13 +143,15 @@
                     let oprc = document.createElement('p');
                     let rat = document.createElement('p');
                     let but = document.createElement('button');
+                    let but1 = document.createElement('button');
                     let h2 = document.createElement('h3');
                     let link = document.createElement("a");
+                    let link1=document.createElement('a');
 
                     ndiv.setAttribute('class', 'ndiv');
                     dimg.setAttribute('class', 'img');
                     if(data1.thumbnails[0]===undefined){
-                        //console.log('not')
+                        console.log('not')
                     }else{
                         img.setAttribute("src", data1.thumbnails[0]);
                     }
@@ -161,13 +163,24 @@
                     rat.setAttribute('class', 'rat');
                     //console.log(data1.share_url)
                     link.setAttribute('href', data1.share_url+'?affid=bittumail');
-                    link.setAttribute("target", "_blank")
+                    link.setAttribute("target", "blank_")
+
+                    let nppara= data1.share_url
+                    
+                    let rep=nppara.replace("https://www.flipkart.com/","")
+                    let rep1=rep.replace("https://dl.flipkart.com/dl/","")
+                    let c= rep1.split("/").join('_');
+                    console.log(c);
+                    link1.setAttribute('href', "details.html?title="+c);
+                    link1.setAttribute("target", "blank_")
                     para.innerText = data1.name;
                     prc.innerText = "Price: " + data1.current_price;
                     oprc.innerText = "MRP: " + data1.original_price;
                     rat.innerText = data1.rating;
-                    but.innerText = "View Details";
+                    but.innerText = "Buy Now";
+                    but1.innerText = "View Full Details";
                     but.setAttribute('class', 'but');
+                    but1.setAttribute('class', 'but');
                     h2.innerText = "Highlights:";
 
 
@@ -182,7 +195,9 @@
                     dtls.appendChild(oprc);
                     dtls.appendChild(rat);
                     link.appendChild(but);
+                    link1.appendChild(but1);
                     dtls.appendChild(link);
+                    dtls.appendChild(link1);
                     dtls.appendChild(h2);
                     dimg.appendChild(img);
                     ndiv.appendChild(dimg);
@@ -199,7 +214,8 @@
                     //console.log(data1.highlights);
                     let highh = Object.keys(data1.highlights)
                     //console.log(highh.length)
-                    for (let k = 0; k <= highh.length--; k++) {
+                    
+                    for (let k = 0; k <= highh.length-1; k++) {
                         let li = document.createElement('li');
                         li.innerText = data1.highlights[k];
                         high.appendChild(li);
