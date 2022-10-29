@@ -151,31 +151,43 @@
 
 
                     dtls.appendChild(para);
-                    dtls.appendChild(prc);
-                    dtls.appendChild(oprc);
-                    dtls.appendChild(rat);
-                    link.appendChild(but);
-                    
-                    dtls.appendChild(link);
-                    
-                    dtls.appendChild(h2);
-                    dimg.appendChild(img);
-                    ndiv.appendChild(dimg);
-                    ndiv.appendChild(dtls);
-                    main.appendChild(ndiv);
-                    
-            for(let i=0; i<=lngth-1; i++){
-                let spec=document.createElement("h3");
-                let specdtls= document.createElement("p");
-                
-                spec.innerText=data.specs[i].title+":"
-                specdtls.innerText=data.specs[i].details
-                //specdtls.setAttribute('class', 'mrp');
-                dtls.appendChild(spec)
-                dtls.appendChild(specdtls)
+        dtls.appendChild(prc);
+        dtls.appendChild(oprc);
+        dtls.appendChild(rat);
+        link.appendChild(but);
 
-                console.log(data.specs[i].title)
-                console.log(data.specs[i].details)
+        dtls.appendChild(link);
+
+        // dtls.appendChild(h2);
+        dimg.appendChild(img);
+        ndiv.appendChild(dimg);
+        ndiv.appendChild(dtls);
+        main.appendChild(ndiv);
+
+
+        let specdiv = document.createElement('div');
+        let specdetais=document.createElement('div')
+
+        specdiv.setAttribute('class', 'spec');
+        specdetais.setAttribute('class', 'details');
+        specdiv.appendChild(h2);
+
+        main.appendChild(specdiv);
+
+
+        for (let i = 0; i <= lngth - 1; i++) {
+          let spec = document.createElement("h3");
+          let specdtls = document.createElement("p");
+
+          spec.innerText = data.specs[i].title + ":"
+          specdtls.innerText = data.specs[i].details
+          //specdtls.setAttribute('class', 'mrp');
+
+
+          // dtls.appendChild(spec)
+          // dtls.appendChild(specdtls)
+          specdiv.appendChild(spec)
+          specdiv.appendChild(specdtls)
 
 
                 
