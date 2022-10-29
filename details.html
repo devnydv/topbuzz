@@ -77,12 +77,13 @@
     </div>
 
 <script>
+    //title of the page.....................................
     let url = new URLSearchParams(window.location.search);
-    
-        let title = url.get('title');
-        let c = title.split("_").join('/');
-        console.log(c);
-        document.title="Top Tech Buzz: Top Best "+c;
+    let title = url.get('title');
+    let c = title.split("_").join('/');
+    let s = title.substring(0, title.indexOf('_'));
+    //console.log(s)
+    document.title = "Top Tech Buzz: Full Details of " + s;
 
 
 
