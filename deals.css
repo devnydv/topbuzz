@@ -209,6 +209,20 @@
     padding-right: 15px;
     padding-left: 15px;
   }
+
+
+ #main .spec{
+    
+    background-color: #ffffff;
+    margin: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgb(196, 196, 196);
+     
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
   #main .ndiv h1{
     color: black;
     font-size: 26px;
@@ -233,7 +247,7 @@
     color:black;
   }
 
-  #main .ndiv .details h3{
+  #main .spec h3, .ndiv .details h3{
     margin:10px 10px 0px 0px;
     font-weight: bolder;
     text-align: justify;
