@@ -124,11 +124,12 @@
                     let c= nlink.split(" ").join('_');
                     child.setAttribute('class','child')
                     fimg.setAttribute('class','fiximg')
-                    fimg.setAttribute("loading","lazy");
+                    
                     a.setAttribute('href','items.html?title='+ c)
                     a.setAttribute('title', c);
                     img.setAttribute('alt', c);
                     img.setAttribute('src',data.id1[nnobj][valinner].img)
+                    img.setAttribute("loading","lazy");
                     title.innerText= data.id1[nnobj][valinner].title
                     // console.log(data.id1[nnobj][valinner].img)
 
