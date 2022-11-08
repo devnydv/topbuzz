@@ -124,6 +124,7 @@
                     let c= nlink.split(" ").join('_');
                     child.setAttribute('class','child')
                     fimg.setAttribute('class','fiximg')
+                    fimg.setAttribute("loading","lazy");
                     a.setAttribute('href','items.html?title='+ c)
                     a.setAttribute('title', c);
                     img.setAttribute('alt', c);
@@ -133,7 +134,7 @@
 
 
                     
-                    fimg.appendChild(img)
+                    fimg.appendChild(img);
                     child.appendChild(fimg)
                     child.appendChild(title)
                     a.appendChild(child)
