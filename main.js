@@ -34,6 +34,7 @@ fetch('https://paycode-19bb1.firebaseio.com/home.json')
 
       ndiv.setAttribute('class','ndiv');
       dimg.setAttribute('class','img');
+      dimg.setAttribute("loading","lazy");
       dtls.setAttribute('class','details');
       img.setAttribute("src", data[key].img );
       img.setAttribute('alt', data[key].title);
@@ -130,6 +131,7 @@ function lol(apival, mval){
   
         ndiv.setAttribute('class','ndiv');
         dimg.setAttribute('class','img');
+        dimg.setAttribute("loading","lazy");
         dtls.setAttribute('class','details');
         img.setAttribute("src", data[key].img);
         img.setAttribute('alt', data[key].title);
