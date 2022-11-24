@@ -8,7 +8,7 @@ function lol() {
       let vall=got.length;
       vall=vall-1
       localStorage.setItem("vall", vall);
-      load()
+      
     })}
 
 
@@ -90,4 +90,4 @@ function load() {
 
 }
 
-
+load()
