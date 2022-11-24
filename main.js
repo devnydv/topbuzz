@@ -1,4 +1,4 @@
-lol()
+
 function lol() {
   fetch('https://paycode-19bb1.firebaseio.com/home.json')
     .then((responce) => responce.json())
@@ -10,7 +10,7 @@ function lol() {
       localStorage.setItem("vall", vall);
       
     })}
-
+lol()
 
 
 
