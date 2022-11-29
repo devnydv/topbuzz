@@ -1,7 +1,7 @@
 let a=0;
   let b=5;
   function load() {
-    fetch('https://paycode-19bb1.firebaseio.com/home.json')
+    fetch('https://paycode-19bb1.firebaseio.com/post.json')
       .then((responce) => responce.json())
       .then((data) => {
         //console.log(data);
