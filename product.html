@@ -126,7 +126,7 @@
   
   
 const db = getDatabase();
- const starCountRef = ref(db, 'home/');
+ const starCountRef = ref(db, 'post/');
 
 onValue(starCountRef, (snapshot) => {
   const data = snapshot.val();
