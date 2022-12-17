@@ -212,7 +212,7 @@ title ="Speakers";
 
   }
 
-  fetch("https://flipkart.dvishal485.workers.dev/search/" + title)
+  fetch("https://flipkart.dvishal485.workers.dev/search/" + title+"&p%5B%5D=facets.rating%255B%255D%3D4%25E2%2598%2585%2B%2526%2Babove&sort=price_asc")
     .then((responce) =>
       responce.json())
     .then((data => {
