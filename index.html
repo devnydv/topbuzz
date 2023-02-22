@@ -202,14 +202,15 @@ title ="Speakers";
   //.................Meta....title....seo......................
   document.title = "Top Tech Buzz: Top Tranding " + c;
 
-  let meta= `<meta content='TopTechBuzz.xyz :: Top Tranding ${ c}  ' property='og:title' />
-  <meta name="description" property='og: description'
-    content="Top selected ${ c} for the users to buy online. These are selected according to there specifications and user experiences.">
+//   let meta= `<meta content='TopTechBuzz.xyz :: Top Tranding ${ c}  ' property='og:title' />
+//   <meta name="description" property='og: description'
+//     content="Top selected ${ c} for the users to buy online. These are selected according to there specifications and user experiences.">
     
-    `
-  document.head.insertAdjacentHTML("beforeend",meta);
+//     `
+//   document.head.insertAdjacentHTML("beforeend",meta);
 
-
+  let meta = document.querySelector('meta[name="description"]');
+  meta.setAttribute("content", `Top selected ${c} for the users to buy online. These are selected according to there specifications and user experiences.`);
   
 
 
