@@ -100,6 +100,8 @@
        let c= nppara.split("_").join(' ');
        //console.log(c);
   document.title=c; 
+   let meta= document.querySelector('meta[name="description"]');
+meta.setAttribute("content", `List of ${title} from best websites for you`);
   let main = document.getElementById('main');
   let div= document.createElement("div");
   let h1=document.createElement('h1');
