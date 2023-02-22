@@ -21,6 +21,7 @@
     <meta
       content='Best Deals on Top Mobile Brands, Deals, flipkart deals, all flipkart product, online deals, deals on mobiles, deals on earphones, laptops, Gaming_Laptops, DSLR, Printers, Inks, Back_Cases'
       name='Keywords' />
+    <meta name="description" content="Complete details of the product with price and ratings and purchase link of the product at its lowest and best price from trusted store.">
     <meta http-equiv='content-language' content='en-in'>
     
     
@@ -95,11 +96,12 @@
     let s = title.substring(0, title.indexOf('_'));
     //console.log(s)
     document.title = "Top Tech Buzz: Full Details of " + s;
-
-    let meta= document.createElement("meta");
-    meta.name="description"
-    meta.content="Complete details of the product "+s+" with price and ratings  and purchase link of the product at its lowest and best price from trusted store.";
-    document.head.insertAdjacentElement("beforeend", meta);
+ let meta = document.querySelector('meta[name="description"]');
+    meta.setAttribute("content", `Complete details of the product "+s+" with price and ratings and purchase link of the product at its lowest and best price from trusted store.`);
+//     let meta= document.createElement("meta");
+//     meta.name="description"
+//     meta.content="Complete details of the product "+s+" with price and ratings  and purchase link of the product at its lowest and best price from trusted store.";
+//     document.head.insertAdjacentElement("beforeend", meta);
 
         fetch("https://flipkart.dvishal485.workers.dev/product/compact/dl/" + c)
         .then((responce) =>
