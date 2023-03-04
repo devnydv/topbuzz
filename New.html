@@ -14,6 +14,7 @@
   <div id="main">
     <p>select category</p>
     <input type="text" name="" id="inp">
+    <input type="text" id="price" placeholder="price">
     <br>
     <button id="getamazbut">Fetch</button>
     <button id="submit">Submit</button>
@@ -92,6 +93,10 @@ let catname=event.target.value
   window.localStorage.setItem('amadata', gotamadata);
   mainfather= gotamadata
  // console.log(mainfather)
+    // code for price
+            let priceinp = document.getElementById('price').value
+            window.localStorage.setItem('price', priceinp);
+            console.log(priceinp);
 }
 getamadata()
   }
@@ -119,8 +124,8 @@ set(ref(db,`amazon/category/${getcatname}/${getind}`),{
    stok:mainfather.product_detail.in_stock,
      features: mainfather.product_detail.features,
      rat:mainfather.product_detail.rating_details.rating,
-     ratc:mainfather.product_detail.rating_details.ratings_count
-  
+     ratc:mainfather.product_detail.rating_details.ratings_count,
+   prc: window.localStorage.getItem('price')
 })
 }
   
