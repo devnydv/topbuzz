@@ -55,10 +55,10 @@
   .then(response => response.json())
   .then(catdata =>{
     
-   
+   console.log(catdata);
     let objofcat= catdata.category
     for(let cate of Object.keys(objofcat)){
-   console.log(catdata);
+   
     let catbut=`<button class="but" value="${cate}" onlick=lol()>${cate}</button>`
     main.insertAdjacentHTML('afterbegin', catbut);
     }
