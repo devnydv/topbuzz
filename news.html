@@ -82,11 +82,11 @@
 
                 window.localStorage.setItem('ind', ind);
 
-                //catdata.category[catname].forEach(listname => {
+                catdata.category[catname].forEach(listname => {
                     
-                    //let listtit = `<p  >${listname.title}</button>`
-               // main.insertAdjacentHTML('beforeend', listtit);
-               // });
+                    let listtit = `<p  >${listname.title}</button>`
+                main.insertAdjacentHTML('beforeend', listtit);
+                });
 
             }
         })
