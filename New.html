@@ -2,133 +2,149 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-  <title>create data in data base</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>create data in data base</title>
+    <style>
+        #main button {
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
 
 
-  <div id="main">
-    <p>select category</p>
-    <input type="text" name="" id="inp">
-    <input type="text" id="price" placeholder="price">
-    <br>
-    <button id="getamazbut">Fetch</button>
-    <button id="submit">Submit</button>
-    
-  </div>
+
+    <div id="main">
+        <p>select category</p>
+        <input type="text" name="" id="inp" placeholder="parameter">
+        <input type="text" id="price" placeholder="price">
+        <br>
+        <button id="getamazbut">Fetch</button>
+        <button id="submit">Submit</button>
+
+    </div>
 
 
 
 </body>
-  <script type="module">
-  
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+<script type="module">
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyDtj6qujvbCKD0uAbtPURjVD2aMoc88a7s",
-    authDomain: "paycode-19bb1.firebaseapp.com",
-    databaseURL: "https://paycode-19bb1.firebaseio.com",
-    projectId: "paycode-19bb1",
-    storageBucket: "paycode-19bb1.appspot.com",
-    messagingSenderId: "119821179977",
-    appId: "1:119821179977:web:63930ff56856b47f17f398"
-  };
-  
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  console.log('lol')
-  
-  import { getDatabase, ref ,set,child, update, remove, onValue} from"https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
-  
-  //connection ends here for firebase....
-  let mainfather;
-  
-  fetch('https://paycode-19bb1.firebaseio.com/amazon.json')
-  .then(response => response.json())
-  .then(catdata =>{
-    
-   console.log(catdata);
-    let objofcat= catdata.category
-    for(let cate of Object.keys(objofcat)){
-   
-    let catbut=`<button class="but" value="${cate}" onlick=lol()>${cate}</button>`
-    main.insertAdjacentHTML('afterbegin', catbut);
-    }
-    //get value of button that contains category nme..........
-    const but = document.querySelectorAll('.but');
-but.forEach(function(element) {
-  element.addEventListener('click',lol)
-})
-  function lol(){
-let catname=event.target.value
- 
- window.localStorage.setItem('catname', catname);
- //get index insite category to save data after......
- let ind= catdata['category'][catname].length
- 
- window.localStorage.setItem('ind', ind);
- 
-  }
-})
-  .catch(error => console.error(error));
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-  let main=document.getElementById("main");
-  let getamazbut=document.getElementById('getamazbut');
-  getamazbut.addEventListener('click', doamazbut)
-  function doamazbut(){
-  let inpurl=document.getElementById('inp').value;
-  //console.log(inpurl);
-  async function getamadata(){
-  let mainamadata= await fetch(inpurl);
-  let gotamadata=await mainamadata.json();
-  console.log(gotamadata);
-  window.localStorage.setItem('amadata', gotamadata);
-  mainfather= gotamadata
- // console.log(mainfather)
-    // code for price
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDtj6qujvbCKD0uAbtPURjVD2aMoc88a7s",
+        authDomain: "paycode-19bb1.firebaseapp.com",
+        databaseURL: "https://paycode-19bb1.firebaseio.com",
+        projectId: "paycode-19bb1",
+        storageBucket: "paycode-19bb1.appspot.com",
+        messagingSenderId: "119821179977",
+        appId: "1:119821179977:web:63930ff56856b47f17f398"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    console.log('lol')
+
+    import { getDatabase, ref, set, child, update, remove, onValue } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
+
+    //connection ends here for firebase....
+    let mainfather;
+
+    fetch('https://paycode-19bb1.firebaseio.com/amazon.json')
+        .then(response => response.json())
+        .then(catdata => {
+
+
+            let objofcat = catdata.category
+            for (let cate of Object.keys(objofcat)) {
+                //console.log(cate);
+                let catbut = `<button class="but" value="${cate}" onlick=lol()>${cate}</button>`
+                main.insertAdjacentHTML('afterbegin', catbut);
+            }
+            //get value of button that contains category nme..........
+            const but = document.querySelectorAll('.but');
+            but.forEach(function (element) {
+                element.addEventListener('click', lol)
+            })
+            function lol() {
+                let catname = event.target.value
+
+                window.localStorage.setItem('catname', catname);
+                //get index insite category to save data after......
+                let ind = catdata['category'][catname].length;
+
+                window.localStorage.setItem('ind', ind);
+
+                catdata.category[catname].forEach(listname => {
+                    
+                    let listtit = `<p  >${listname.title}</button>`
+                main.insertAdjacentHTML('beforeend', listtit);
+                });
+
+            }
+        })
+        .catch(error => console.error(error));
+
+    let main = document.getElementById("main");
+    //select fetch but..........................................................
+    let getamazbut = document.getElementById('getamazbut');
+    getamazbut.addEventListener('click', doamazbut)
+    function doamazbut() {
+        let inpurl = document.getElementById('inp').value;
+        //console.log(inpurl);
+        async function getamadata() {
+            //fetch url datafrom amazon ...............
+            let mainamadata = await fetch(`https://aged-bread-22a5.paycodehelp.workers.dev/product/${inpurl}`);
+            let gotamadata = await mainamadata.json();
+            console.log(gotamadata);
+            window.localStorage.setItem('amadata', gotamadata);
+            mainfather = gotamadata
+            // console.log(mainfather)
+            // code for price
             let priceinp = document.getElementById('price').value
             window.localStorage.setItem('price', priceinp);
             console.log(priceinp);
-}
-getamadata()
-  }
+        }
+        getamadata()
+    }
 
 
-  
- 
-  //send data to firebase........
-  
-  
-  let db=getDatabase();
-  let subbut= document.getElementById('submit');
-  subbut.addEventListener('click', sub)
- function sub(){
-   let getcatname=window.localStorage.getItem('catname');
-   let getind=window.localStorage.getItem('ind');
-   //console.log(getind)
-   let getamadata=window.localStorage.getItem('amadata');
- // console.log(mainfather.product_detail.features);
-   console.log('suc')
-set(ref(db,`amazon/category/${getcatname}/${getind}`),{
-  fetchfrom: mainfather.fetch_from,
-    title:mainfather.product_detail.name,
-     img:mainfather.product_detail.image,
-   stok:mainfather.product_detail.in_stock,
-     features: mainfather.product_detail.features,
-     rat:mainfather.product_detail.rating_details.rating,
-     ratc:mainfather.product_detail.rating_details.ratings_count,
-   prc: window.localStorage.getItem('price')
-})
-}
-  
-  
-  </script>
+
+
+    //send data to firebase........
+
+
+    let db = getDatabase();
+    let subbut = document.getElementById('submit');
+    subbut.addEventListener('click', sub)
+    function sub() {
+        let getcatname = window.localStorage.getItem('catname');
+        let getind = window.localStorage.getItem('ind');
+        //console.log(getind)
+        let getamadata = window.localStorage.getItem('amadata');
+        // console.log(mainfather.product_detail.features);
+        console.log('suc')
+        set(ref(db, `amazon/category/${getcatname}/'items'/${0}`), {
+            fetchfrom: mainfather.fetch_from,
+            title: mainfather.product_detail.name,
+            img: mainfather.product_detail.image,
+            stok: mainfather.product_detail.in_stock,
+            features: mainfather.product_detail.features,
+            rat: mainfather.product_detail.rating_details.rating,
+            ratc: mainfather.product_detail.rating_details.ratings_count,
+            prc: window.localStorage.getItem('price')
+
+        })
+    }
+
+
+</script>
+
 </html>
