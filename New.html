@@ -78,7 +78,7 @@
 
                 window.localStorage.setItem('catname', catname);
                 //get index insite category to save data after......
-                let ind = catdata['category'][catname].length;
+                let ind = catdata['category'][catname].items.length;
 
                 window.localStorage.setItem('ind', ind);
 
@@ -131,7 +131,7 @@
         let getamadata = window.localStorage.getItem('amadata');
         // console.log(mainfather.product_detail.features);
         console.log('suc')
-        set(ref(db, `amazon/category/${getcatname}/items/${0}`), {
+        set(ref(db, `amazon/category/${getcatname}/items/${getind}`), {
             fetchfrom: mainfather.fetch_from,
             title: mainfather.product_detail.name,
             img: mainfather.product_detail.image,
