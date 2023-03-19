@@ -104,6 +104,10 @@
             let mainamadata = await fetch(`https://aged-bread-22a5.paycodehelp.workers.dev/product/${inpurl}`);
             let gotamadata = await mainamadata.json();
             console.log(gotamadata);
+            if (gotamadata.product_detail!== null) {
+                getamazbut.style.background='blue';
+                //console.log(gotamadata.product_detail);
+            }
             window.localStorage.setItem('amadata', gotamadata);
             mainfather = gotamadata
             // console.log(mainfather)
