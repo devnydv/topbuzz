@@ -152,7 +152,7 @@
         let valinner = lgtinner[j]
 
         let gettitle=gotmdata.id1[nobj[i]][valinner].title ;
-       let c= gettitle.split(" ").join('_');
+       let c= gettitle.split(" ").join('+');
 
         let link = `<a href=?title=${c}>
           <p>${gotmdata.id1[nobj[i]][valinner].title}</p>
@@ -199,7 +199,7 @@ title ="Speakers";
 // document.head.insertAdjacentHTML("beforeend",htitle);
 }
 
-  let c = title.split("_").join(' ');
+  let c = title.split("+").join(' ');
   console.log(c);
 
   //.................Meta....title....seo......................
